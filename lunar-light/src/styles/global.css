@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "@pelagornis/page/styles";
+
+:root {
+  --sl-color-bg: #000000 !important;
+  --sl-color-bg-page: #000000 !important;
+}
+
+body,
+[data-template="splash"],
+.page {
+  background-color: #000000 !important;
+}
+
+/* Hides the Starlight theme selector dropdown */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* Subtle white shadow glow on the main content containers */
+.main-frame,
+main {
+  box-shadow: 0 0 80px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Enhances the video containers with a distinct white depth shadow */
+.card-grid > div,
+.sl-card,
+CardGrid > div {
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08),
+              0 1px 3px rgba(255, 255, 255, 0.15) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Adds a sleek interactive hover effect to the cards */
+.card-grid > div:hover,
+.sl-card:hover,
+CardGrid > div:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.12),
+              0 1px 5px rgba(255, 255, 255, 0.25) !important;
+}

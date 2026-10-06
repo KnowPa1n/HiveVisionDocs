@@ -1,0 +1,50 @@
+---
+title: Limelight 3a
+description: Set-up Hive Vision for your Limelight 3a
+---
+import { Aside } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+The neural track: a Limelight 3A runs the SSD detector on its own CPU, using Hive Vision neural network
+you can simply apply it in your pipeline settings and use various provided code for pollen tracking.
+
+
+
+
+<Aside type="note">This installation is for Limelight 3a only, please refer to the `Installation` menu for other camera setups!</Aside>
+
+Prerequisites:
+
+- <Badge text="Limelight 3a " variant="note" />
+- <Badge text="Control Hub" variant="success" />
+- <Badge text="IDE code editor" variant="tip" />
+- <Badge text="MacOS, Linux, or Windows computer" variant="caution" />
+- <Badge text="Fully functioning robot, no subsystems needed" variant="danger" />
+## Installation
+import { Steps } from '@astrojs/starlight/components';
+
+<Steps>
+
+1. **Connect your limelight to your computer:**
+    Wait roughly 10-15 seconds until you see the orange and green light flickering,
+    this is how you know it is connected.
+
+
+2. **In your browser, open up `http://limelight.local:5801`**
+    When entered, you will see a limelight dashboard with a camera stream, if not, please repeat step 1.
+
+3. **Allow pipeline switch at the top**
+    Select a pipeline that you can remember.
+
+4. **Change the input to Neural Networking**
+   This will allow the Hive Vision program to be running on your limelight's cpu.
+
+5. **Download the [`tflite`](https://github.com/sidhuharjas/Hive-Vision/blob/main/neural-net/weights/best_limelight3a_float32.tflite) and [`labels`](https://github.com/sidhuharjas/Hive-Vision/blob/main/neural-net/weights/labels.txt).**
+   Save it into a known file for later use.
+
+6. **Upload the `tflite` and `labels`** into the designated spot in your pipeline settings.
+
+</Steps>
+
+Success! Congratulations on setting up Hive Vision for your Limelight 3A! Refer to the `Usages` panel, for how to apply this Neural Network in FTC working code!
+- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework

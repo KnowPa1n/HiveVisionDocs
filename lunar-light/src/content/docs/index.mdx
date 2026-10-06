@@ -1,0 +1,72 @@
+---
+title: Hive Vision
+description: Vision library for your FTC team!
+template: splash
+# Remove or comment out this line to display the site sidebar on this page.
+hero:
+  tagline: Vision library for your FTC team!
+  image:
+    file: /public/hive.png
+  actions:
+
+    - text: Read the docs
+      link: /overview/overview
+      icon: external
+      variant: minimal
+---
+
+import { CardGrid } from '@astrojs/starlight/components';
+
+## Neural Networking
+
+<CardGrid>
+  {/* Panel 1 */}
+  <div style={{
+    border: '1px solid var(--sl-color-hairline-light, #e2e8f0)',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    backgroundColor: 'var(--sl-color-bg-nav, #ffffff)',
+    display: 'flex'
+  }}>
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      width="100%"
+      style={{ display: 'block', objectFit: 'cover' }}
+    >
+      <source src="/detection.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  {/* Panel 2 */}
+  <div style={{
+    border: '1px solid var(--sl-color-hairline-light, #e2e8f0)',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    backgroundColor: 'var(--sl-color-bg-nav, #ffffff)',
+    display: 'flex'
+  }}>
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      width="100%"
+      style={{ display: 'block', objectFit: 'cover' }}
+    >
+      <source src="/47Beavers.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</CardGrid>
+
+<style>`
+  .hero img {
+    max-width: 75% !important;
+    height: auto !important;
+    margin: 0 auto;
+  }
+`</style>
