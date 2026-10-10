@@ -4,21 +4,44 @@ import starlight from '@astrojs/starlight';
 import starlightThemeBlack from 'starlight-theme-black';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+// https://astro.build
 export default defineConfig({
   integrations: [
     starlight({
       plugins: [
         starlightThemeBlack({
-          navLinks: [{
-            label: 'Docs',
-            link: '/overview/overview',
-          }],
+          // --- NAVLINKS FIXED CONTEXT ---
+          navLinks: [
+            {
+              label: 'Docs',
+              link: '/overview/overview',
+            },
+            {
+              label: 'About',
+              link: '/overview/aboutus', // FIX: Set completely to lowercase to match your file position precisely!
+            }
+          ],
+
+          // Securely locks dark mode theme layer parameters inside the plugin engine
+          disableDarkmodeToggle: true,
         }),
       ],
       title: 'Hive Vision',
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            src: '/honeycomb.js',
+            type: 'module',
+          },
+        },
+      ],
       customCss: ['./src/styles/global.css'],
-      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/sidhuharjas/Hive-Vison' }],
+      // --- UPDATED SOCIAL LINKS FOR NEW TAB BEHAVIOR ---
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com', target: '_blank' },
+        { icon: 'discord', label: 'Discord', href: 'https://discord.gg', target: '_blank' }
+      ],
       sidebar: [
         {
           label: 'Overview',
@@ -30,6 +53,7 @@ export default defineConfig({
           label: 'Installation',
           items: [
             { label: 'Limelight 3a', slug: 'installation/limelight' },
+            { label: 'Webcam', slug: 'installation/webcam'}
           ],
         },
         {

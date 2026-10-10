@@ -6,21 +6,67 @@
   --sl-color-bg-page: #000000 !important;
 }
 
+/* Force structural Starlight layers, nested panels, and main frames to stay transparent */
+html,
 body,
 [data-template="splash"],
-.page {
-  background-color: #000000 !important;
-}
-
-/* Hides the Starlight theme selector dropdown */
-starlight-theme-select {
-  display: none !important;
-}
-
-/* Subtle white shadow glow on the main content containers */
+.page,
 .main-frame,
-main {
+.content-panel,
+.sl-flex,
+main,
+article,
+.main-pane,
+.sidebar,
+aside,
+[class*="sidebar"],
+[class*="right-sidebar"],
+.right-sidebar {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/*
+   Permanent Static Linear Gradient Backdrop
+   This creates a smooth, fixed gradient flowing top-to-bottom across
+   the viewport, entirely independent of where your mouse moves.
+*/
+html,
+body {
+  background-color: #000000 !important;
+  background-image: linear-gradient(
+    to bottom,
+    #16161a 0%,
+    #0a0a0c 35%,
+    #000000 100%
+  ) !important;
+  background-attachment: fixed !important;
+}
+
+/*
+   --- FIX: Removed 'main' from here ---
+   We only keep the shadow on the ultra-outer layout body wrapper (.main-frame)
+   so it doesn't create a boxed rectangular shadow framing around your reading pane.
+*/
+.main-frame {
   box-shadow: 0 0 80px 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Flatten the Dual Panelled Bars and Header Layout */
+header,
+.main-frame header,
+[class*="header"],
+header *,
+.header-wrapper,
+[class*="header-wrapper"] {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Enhances the video containers with a distinct white depth shadow */
@@ -39,4 +85,74 @@ CardGrid > div:hover {
   transform: translateY(-2px);
   box-shadow: 0 15px 40px rgba(255, 255, 255, 0.12),
               0 1px 5px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* --- Mask and Hide the Accessibility Skip-Link --- */
+.skip-link,
+a[href="#_top"],
+a.skip-to-content,
+[class*="skip-link"] {
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+}
+
+/* Restores layout placement for the link if focused */
+.skip-link:focus,
+a.skip-to-content:focus {
+  clip: auto !important;
+  clip-path: none !important;
+  height: auto !important;
+  width: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  z-index: 9999 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  padding: 1rem !important;
+}
+
+/* Hides the Starlight theme selector dropdown */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* --- Honeycomb Canvas Layout --- */
+#honeycomb-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ensure sidebars, headers, cards, and text stay crisp above the canvas grid texture */
+.sidebar,
+header,
+.main-frame header,
+.sl-markdown-content,
+.card-grid,
+.sl-card,
+footer,
+h1, h2, h3, p, a, img, ul, ol, li, span, code {
+  position: relative;
+  z-index: 2;
+}
+
+/* Force hide any lingering Starlight or plugin dark/light mode toggle widgets */
+starlight-theme-select,
+.theme-toggle,
+[class*="theme-toggle"],
+button[aria-label*="theme"],
+.sl-flex button:has(svg.sun),
+.sl-flex button:has(svg.moon) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }

@@ -16,10 +16,7 @@ you can simply apply it in your pipeline settings and use various provided code 
 Prerequisites:
 
 - <Badge text="Limelight 3a " variant="note" />
-- <Badge text="Control Hub" variant="success" />
-- <Badge text="IDE code editor" variant="tip" />
 - <Badge text="MacOS, Linux, or Windows computer" variant="caution" />
-- <Badge text="Fully functioning robot, no subsystems needed" variant="danger" />
 ## Installation
 import { Steps } from '@astrojs/starlight/components';
 
@@ -35,16 +32,22 @@ import { Steps } from '@astrojs/starlight/components';
 
 3. **Allow pipeline switch at the top**
     Select a pipeline that you can remember.
+     <img src="/pipelineSwitchingAllow.png" alt="tflite" style={{ width: '65%', height: 'auto', display: 'block', marginTop: '1rem' }} />
 
-4. **Change the input to Neural Networking**
-   This will allow the Hive Vision program to be running on your limelight's cpu.
+
+4. **Select `Neural Detector`** for your pipeline type on the Limelight local   This will allow the Hive Vision program to be running on your limelight's cpu.
+      <img src="/neuralDetector.png" alt="tflite" style={{ width: '65%', height: 'auto', display: 'block', marginTop: '1rem' }} />
+
 
 5. **Download the [`tflite`](https://github.com/sidhuharjas/Hive-Vision/blob/main/neural-net/weights/best_limelight3a_float32.tflite) and [`labels`](https://github.com/sidhuharjas/Hive-Vision/blob/main/neural-net/weights/labels.txt).**
    Save it into a known file for later use.
 
-6. **Upload the `tflite` and `labels`** into the designated spot in your pipeline settings.
+
+
+6. On the `configuration` tab at the top **Upload the `tflite` and `labels`** into the designated spot in your pipeline settings.
+   <img src="/tfliteLocation.png" alt="tflite" style={{ width: '65%', height: 'auto', display: 'block', marginTop: '1rem' }} />
 
 </Steps>
 
+
 Success! Congratulations on setting up Hive Vision for your Limelight 3A! Refer to the `Usages` panel, for how to apply this Neural Network in FTC working code!
-- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
